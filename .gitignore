@@ -1,0 +1,6 @@
+tree.sln
+Debug
+.vs
+tree/tree.vcxproj
+tree/tree.vcxproj.filters
+tree/tree.vcxproj.user
