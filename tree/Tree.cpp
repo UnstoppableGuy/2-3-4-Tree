@@ -52,7 +52,7 @@ void Tree234::remove(int k)
 {
 	if (!root)
 	{
-		std::cout << "The tree is empty\ncount";
+		std::cout << "The tree is empty";
 		return;
 	}
 	root->remove(k);

@@ -32,7 +32,7 @@ void Tree234Node::remove(int k)
 	{
 		if (leaf)
 		{
-			std::cout << "The key " << k << " is does not exist in the tree\ncount";
+			std::cout << "The key " << k << " is does not exist in the tree\n";
 			return;
 		}
 		bool flag = ((idx == count) ? true : false);
@@ -80,17 +80,24 @@ void Tree234Node::removeFromNonLeaf(int idx)
 int Tree234Node::getPredecessor(int idx)
 {
 	Tree234Node* cur = nodes[idx];
+	Tree234Node* begin = nodes[idx];
 	while (!cur->leaf)
 		cur = cur->nodes[cur->count];
-	return cur->keys[cur->count - 1];
+	//std::cout << cur->keys[cur->count - 1] << " predecessor\n";
+	int key = cur->keys[cur->count - 1];
+	cur = begin;
+	return key;
 }
 
 int Tree234Node::getSuccessor(int idx)
 {
 	Tree234Node* cur = nodes[idx + 1];
+	Tree234Node* begin = nodes[idx +1];
 	while (!cur->leaf)
 		cur = cur->nodes[0];
-	return cur->keys[0];
+	int key = cur->keys[0];
+	cur = begin;
+	return key;
 }
 
 void Tree234Node::fill(int idx)
@@ -170,6 +177,7 @@ void Tree234Node::merge(int idx)
 	delete(sibling);
 	return;
 }
+
 void Tree234Node::insertNonFull(int k)
 {
 	int i = count - 1;
